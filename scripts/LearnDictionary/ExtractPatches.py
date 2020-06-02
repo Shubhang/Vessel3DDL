@@ -6,7 +6,7 @@ Created on Fri Jan 29 16:56:11 2016
 
 This script extracts random patches at many scales from provided data.
 At scale 0 it extracts only the patches from the masked region.
-At higher scales the extracted number of patches is lower. 
+At higher scales the extracted number of patches is lower.
 """
 
 import numpy as np
@@ -72,7 +72,7 @@ def serialize_patches(patches, file_name, path2save):
     output = open(f2save, 'wb')
     np.save(output, patches, allow_pickle=True, fix_imports=True)
     output.close()
-    print "saved to: "+f2save
+    print("saved to: "+f2save)
     return None
 
 
