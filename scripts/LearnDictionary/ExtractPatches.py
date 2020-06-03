@@ -24,7 +24,7 @@ def extract_patches(param, numofpatches=100000):
     # Extract patches from each volume and scale
     patches = []
     raw_volume, normalized_patches, mask = 0, 0, 0  # init
-
+    
     for v_index in range(len(param.paths2volumes_unannotated)):
         print('volume: ' + str(v_index))
         # prepare volume: apply mask and rescale
