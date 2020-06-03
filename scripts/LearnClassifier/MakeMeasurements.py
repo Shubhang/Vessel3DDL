@@ -31,7 +31,7 @@ def averaged_measurement(param, ratio_set, scales, number_of_evaluation, X, y):
     # Define classifiers
     classifiers = param.classifiers
     stacked_measure={}
-    
+
     y_raw = y.reshape(len(y))
     for scale in scales:
         X_raw = X[:, 0:param.numOfAtoms*scale]
@@ -79,15 +79,15 @@ def main():
     X, y = read_xy(param.path2Xy, preffix=param.dictionaryName+'_')
     y = y.reshape(len(y))
     measure = averaged_measurement(param, ratio_set, scales, number_of_evaluations,X,y)
-    print("#################################################")
+    # print("#################################################")
     for ratio in ratio_set:
         for numberOfScales in scales:
             print "numberOfScales: "+str(numberOfScales) + " ratio: "+str(ratio) + \
                   " number of eval: "+str(number_of_evaluations) + " numberOfAtoms: " + str(param.numOfAtoms)
-            print("Avg lbfgs L2:     "+str(np.mean(measure[str(numberOfScales)][str(ratio)]['CV_Logit_lbfgs_L2'])))
-            print("std lbfgs L2:     "+str(np.std(measure[str(numberOfScales)][str(ratio)]['CV_Logit_lbfgs_L2'])))
-            print("Avg newton L2:    "+str(np.mean(measure[str(numberOfScales)][str(ratio)]['CV_Logit_newton_L2'])))
-            print("std newton L2:    "+str(np.std(measure[str(numberOfScales)][str(ratio)]['CV_Logit_newton_L2'])))
+            # print("Avg lbfgs L2:     "+str(np.mean(measure[str(numberOfScales)][str(ratio)]['CV_Logit_lbfgs_L2'])))
+            # print("std lbfgs L2:     "+str(np.std(measure[str(numberOfScales)][str(ratio)]['CV_Logit_lbfgs_L2'])))
+            # print("Avg newton L2:    "+str(np.mean(measure[str(numberOfScales)][str(ratio)]['CV_Logit_newton_L2'])))
+            # print("std newton L2:    "+str(np.std(measure[str(numberOfScales)][str(ratio)]['CV_Logit_newton_L2'])))
     serialize_measurements(param.path2Measures, param.dictionaryName, measure)
     return None
 
